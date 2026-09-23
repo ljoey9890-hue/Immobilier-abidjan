@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Georges Emmanuel Immobilier</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f6f8;
+            color: #222;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+            color: #d1d5db;
+        }
+
+        .hero {
+            padding: 60px 20px;
+            text-align: center;
+            background: #1e293b;
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .search {
+            max-width: 800px;
+            margin: -25px auto 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.12);
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .search input,
+        .search select {
+            flex: 1;
+            min-width: 180px;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .search button {
+            padding: 13px 22px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .properties {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,.08);
+        }
+
+        .photo {
+            height: 170px;
+            background: #dbeafe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 55px;
+        }
+
+        .card-content {
+            padding: 18px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .price {
+            color: #2563eb;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .location {
+            color: #666;
+        }
+
+        .contact {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            padding: 12px;
+            background: #16a34a;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px;
+            text-align: center;
+            background: #111827;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .hero h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>GEORGES EMMANUEL IMMOBILIER</h1>
+    <p>Votre partenaire immobilier</p>
+</header>
+
+<section class="hero">
+    <h2>Trouvez votre prochain logement</h2>
+    <p>Maisons, appartements, villas et terrains.</p>
+</section>
+
+<div class="search">
+
+    <input
+        type="text"
+        id="ville"
+        placeholder="Ex : Cocody, Bingerville..."
+    >
+
+    <select id="type">
+        <option value="">Type de bien</option>
+        <option>Maison</option>
+        <option>Appartement</option>
+        <option>Terrain</option>
+        <option>Villa</option>
+    </select>
+
+    <button onclick="rechercher()">
+        Rechercher
+    </button>
+
+</div>
+
+<section class="section">
+
+    <h2>Biens disponibles</h2>
+
+    <div class="properties">
+
+        <div class="card">
+            <div class="photo">🏠</div>
+
+            <div class="card-content">
+                <h3>Villa 3 pièces</h3>
+
+                <p class="location">
+                    📍 Bingerville
+                </p>
+
+                <p class="price">
+                    225 000 FCFA / mois
+                </p>
+
+                <a class="contact" href="#" onclick="contacter()">
+                    Contacter
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="photo">🏢</div>
+
+            <div class="card-content">
+                <h3>Appartement moderne</h3>
+
+                <p class="location">
+                    📍 Cocody
+                </p>
+
+                <p class="price">
+                    350 000 FCFA / mois
+                </p>
+
+                <a class="contact" href="#" onclick="contacter()">
+                    Contacter
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="photo">🌳</div>
+
+            <div class="card-content">
+                <h3>Terrain résidentiel</h3>
+
+                <p class="location">
+                    📍 Abidjan
+                </p>
+
+                <p class="price">
+                    Sur demande
+                </p>
+
+                <a class="contact" href="#" onclick="contacter()">
+                    Contacter
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Georges Emmanuel Immobilier
+</footer>
+
+<script>
+
+function rechercher() {
+
+    let ville = document.getElementById("ville").value;
+    let type = document.getElementById("type").value;
+
+    if (ville === "" && type === "") {
+        alert("Veuillez choisir une ville ou un type de bien.");
+        return;
+    }
+
+    alert(
+        "Recherche : " +
+        (type || "Tous les biens") +
+        " à " +
+        (ville || "Abidjan")
+    );
+}
+
+function contacter() {
+    alert("Contactez Georges Emmanuel Immobilier pour plus d'informations.");
+}
+
+</script>
+
+</body>
+</html>
